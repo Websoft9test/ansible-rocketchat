@@ -6,7 +6,8 @@ Rocketchat部署包中不仅仅只有Rocketchat本身，还包含一序列支持
 
 ### Rocketchat
 
-Rocketchat安装目录: 
+Rocketchat安装目录: /data/wwwroot/Rocket.Chat
+Rocketchat配置文件：/data/wwwroot/Rocket.Chat/rocketchat.conf
 
 ### MongoDB
 MongoDB存储目录：/data/mongo
