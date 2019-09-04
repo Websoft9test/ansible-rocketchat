@@ -2,7 +2,7 @@
 
 使用Scratch，可能会用到的几组账号密码如下：
 
-## Scratch
+## Rocketchat
 
 在初始化安装的时候由用户自行设置
 
