@@ -6,7 +6,7 @@
   gather_facts: False
   pre_tasks:
    - name: Install Python
-     raw: sudo apt install python -y
+     raw: sudo apt update && sudo apt install python -y
 
 
 # # 核心任务
