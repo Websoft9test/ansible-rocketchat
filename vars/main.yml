@@ -1,2 +1,19 @@
 nodejs_version: "10"
+
+mongodb_version: "4.0"       
 mongodb_root_password: 123456
+
+# 随机密码处理
+init_db: 
+  mongodb:
+    user: root
+    password: "123456" 
+
+init_application:
+  rocketchat:
+    service: rocketchat
+    database: rocketchat 
+    database_user: rocketchat
+    database_host: localhost
+    database_password: "123456"
+      

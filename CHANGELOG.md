@@ -3,6 +3,7 @@
 
 
 ## To do
+* 使用旧版的密码初始化脚本，role_init_password是否支持
 
 
 ## Logs
