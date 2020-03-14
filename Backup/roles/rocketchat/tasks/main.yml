@@ -1,3 +1,7 @@
+- name: Get mongodb root Default Password
+  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
+  register: mongodb_password 
+
 - name: Stop mongodb
   service:
     name: mongod
@@ -22,18 +26,18 @@
   mongodb_user:
     database: admin
     name: root
-    password: '{{mongodb_root_password}}'
+    password: '{{ mongodb_password.stdout}}'
     roles: root
     state: present
 
 - name: Create databases
   mongodb_user:
     login_user: root
-    login_password: '{{mongodb_root_password}}'
+    login_password: '{{mongodb_password.stdout}}'
     database: rocketchat
     name: rocketchat
     state: present
-    password: "{{mongodb_root_password}}"
+    password: websoft9
     roles: readWrite
 
 - name: config mongodb
@@ -73,7 +77,7 @@
 
 - name: Download Rocket.Chat
   unarchive:
-    src: "{{rocketchat_download_url}}"
+    src: https://releases.rocket.chat/latest/download
     dest: /tmp
     remote_src: yes
 

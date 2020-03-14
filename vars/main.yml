@@ -1,0 +1,2 @@
+nodejs_version: "10"
+mongodb_root_password: 123456
