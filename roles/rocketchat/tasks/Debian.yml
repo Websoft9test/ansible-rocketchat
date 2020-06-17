@@ -1,4 +1,10 @@
 
-#  prepare
+#  prepare 
+- name: Install dependency 
+  apt:
+    name: build-essential , graphicsmagick , npm
+    update_cache: yes
 
+- name: Install inherits
+  shell: sudo npm install -g inherits n && sudo n 12.14.0
 

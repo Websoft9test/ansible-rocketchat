@@ -9,14 +9,14 @@
 
   roles:
     - { role: role_common,tags: "role_common"}
-    - { role: role_cloud,tags: "role_cloud"}    
+#    - { role: role_cloud,tags: "role_cloud"}    
     - { role: role_node.js, tags: "role_node.js"}
     - { role: role_nginx, tags: "role_nginx"}     
     - { role: role_mongodb, tags: "role_mongodb"}
-    - { role: role_docker, tags: "role_docker"}
-    - { role: role_docker_adminmongo, tags: "role_docker_adminmongo"}  
+#    - { role: role_docker, tags: "role_docker"}
+#    - { role: role_docker_adminmongo, tags: "role_docker_adminmongo"}  
     - { role: rocketchat, tags: "rocketchat"} 
     - { role: role_init_password, tags: "role_init_password" }
     - { role: role_preend, tags: "role_preend" } 
-    - { role: role_end, tags: "role_end" } 
+#    - { role: role_end, tags: "role_end" } 
                                      

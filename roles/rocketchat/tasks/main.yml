@@ -2,10 +2,8 @@
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
 
-
-
   
-   
+# install rocketchat    
 - name: Download rocketchat
   unarchive:
     src: "{{rocketchat_download_url}}"
@@ -23,5 +21,34 @@
 
 - name: Creat rocketchat_user & set permiss
   shell: |
-     useradd -M rocketchat && sudo usermod -L rocketchat
-     chown -R rocketchat:rocketchat /opt/Rocket.Chat
+    useradd -M rocketchat && sudo usermod -L rocketchat
+    chown -R rocketchat:rocketchat /data/Rocket.Chat
+
+# configure MongoDB
+- name: Configure MongoDB
+  shell: |
+    sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
+    sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
+
+- name: Start & Enable mongod.service
+  service: 
+    name: mongod 
+    state: started
+    enabled: yes
+
+# configure the Rocket.Chat service
+- name: Copy rocketchat.service file
+  templates:
+    src: rocketchat.service
+    dest: '/lib/systemd/system/rocketchat.service'
+    mode: 0640
+
+- name: Use mongo shell initialize
+    shell: mongo --eval "printjson(rs.initiate())"
+
+- name: Start & Enable rocketchat.service
+  service: 
+    name: rocketchat 
+    state: started
+    enabled: yes
+
