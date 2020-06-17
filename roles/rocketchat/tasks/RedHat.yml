@@ -1,0 +1,6 @@
+# install dependency
+- name:
+  shell: |
+    sudo yum install -y gcc-c++ make 
+    sudo yum install -y epel-release && sudo yum install -y GraphicsMagick
+    
