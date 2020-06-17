@@ -44,7 +44,7 @@
     mode: 0640
 
 - name: Use mongo shell initialize
-    shell: mongo --eval "printjson(rs.initiate())"
+  shell: mongo --eval "printjson(rs.initiate())"
 
 - name: Start & Enable rocketchat.service
   service: 
