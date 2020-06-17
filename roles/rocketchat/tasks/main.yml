@@ -6,7 +6,7 @@
 # install rocketchat    
 - name: Download rocketchat
   unarchive:
-    src: "{{rocketchat_download_url}}"
+    src: {{rocketchat_download_url}}
     dest: /data
     remote_src: yes
 
