@@ -2,10 +2,10 @@
 #  prepare 
 - name: Install dependency 
   apt:
-    name: build-essential , graphicsmagick , npm
+    name: build-essential , graphicsmagick 
     update_cache: yes
     upgrade: yes
-    
+
 - name: Update nodejs
   shell: sudo npm install -g inherits n && sudo n 12.14.0
 
