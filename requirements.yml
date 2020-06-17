@@ -10,9 +10,6 @@
 - src: http://github.com/websoft9dev/role_mongodb
   version: master
 
-- src: http://github.com/websoft9dev/role_init_password
-  version: master
-
 - src: http://github.com/websoft9dev/role_preend
   version: master
 
