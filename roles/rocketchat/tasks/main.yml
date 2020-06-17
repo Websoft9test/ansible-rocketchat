@@ -7,22 +7,22 @@
 - name: Download rocketchat
   unarchive:
     src: "{{rocketchat_download_url}}"
-    dest: /data
+    dest: /opt
     remote_src: yes
 
 - name:  Install rocketchat
   shell: 
   args:
     cmd: npm install
-    chdir: /data/bundle/programs/server
+    chdir: /opt/bundle/programs/server
 
 - name: rename for rocketchat
-  shell: mv /data/bundle  /data/Rocket.Chat
+  shell: mv /opt/bundle  /opt/Rocket.Chat
 
 - name: Creat rocketchat_user & set permiss
   shell: |
     useradd -M rocketchat && sudo usermod -L rocketchat
-    chown -R rocketchat:rocketchat /data/Rocket.Chat
+    chown -R rocketchat:rocketchat /opt/Rocket.Chat
 
 # configure MongoDB
 - name: Configure MongoDB
