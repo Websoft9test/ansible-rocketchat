@@ -41,7 +41,7 @@
   template:
     src: rocketchat.service
     dest: '/lib/systemd/system/rocketchat.service'
-    mode: 0640
+    
 
 - name: Use mongo shell initialize
   shell: mongo --eval "printjson(rs.initiate())"
@@ -52,3 +52,21 @@
     state: started
     enabled: yes
 
+# set soft link, -b cover the exist links
+# ln -sb src des
+- name: set soft link
+  shell: |
+    ln -sf /opt/Rocket.Chat/   /data/wwwroot
+
+# Check version,
+# must use sudo sh -c to solve the no-root permission
+- block:
+  - name: Check rocketchat Version
+    shell: 
+
+
+# check service state
+- name: Check rocketchat Service
+  shell: systemctl status rocketchat | grep Active*
+  register: check_rocketchat_service
+  notify: check_rocketchat_service

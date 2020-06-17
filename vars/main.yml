@@ -3,6 +3,9 @@ nodejs_version: "12"
 mongodb_version: "4.0"       
 mongodb_root_password: "123456"
 
+# port_forward
+nginx_reverse_proxy_port: 3000
+
 # 随机密码处理
 init_db: 
   mongodb:
