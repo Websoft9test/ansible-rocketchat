@@ -1,6 +1,6 @@
 nodejs_version: "12"
 
-mongodb_version: "4.0.9"       
+mongodb_version: "4.0"       
 mongodb_root_password: "123456"
 
 # 随机密码处理
