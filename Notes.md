@@ -55,7 +55,6 @@ Manual install:
   sudo apt-get install -y build-essential mongodb-org nodejs graphicsmagick  
 # npm: Node.js package manager
   sudo apt-get install -y npm                # Only for Ubuntu 19.04 install npm
-# inherits:
   sudo npm install -g inherits n && sudo n 12.14.0
     
 # Install Rocket.Chat
