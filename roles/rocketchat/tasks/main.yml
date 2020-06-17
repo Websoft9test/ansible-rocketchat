@@ -38,7 +38,7 @@
 
 # configure the Rocket.Chat service
 - name: Copy rocketchat.service file
-  templates:
+  template:
     src: rocketchat.service
     dest: '/lib/systemd/system/rocketchat.service'
     mode: 0640
