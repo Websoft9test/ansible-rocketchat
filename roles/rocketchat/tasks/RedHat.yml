@@ -1,15 +1,15 @@
 # prepare
 #- name: Copy mongodb_repo
 #  copy:
-    src: mongodb-org-4.0.repo
-    dest: /etc/yum.repos.d/mongodb-org-4.0.repo
+#    src: mongodb-org-4.0.repo
+#    dest: /etc/yum.repos.d/mongodb-org-4.0.repo
 
 # install dependency
 #- name: Install dependency
 #  shell: |
-    yum install -y curl && curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
-    yum install -y gcc-c++ make mongodb-org nodejs
-    yum install -y epel-release && sudo yum install -y GraphicsMagick
+#    yum install -y curl && curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+#    yum install -y gcc-c++ make mongodb-org nodejs
+#   yum install -y epel-release && sudo yum install -y GraphicsMagick
     
 - name: Install dependency
   shell: yum install -y gcc-c++ make epel-release GraphicsMagick
