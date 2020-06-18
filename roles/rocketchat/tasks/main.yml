@@ -45,10 +45,6 @@
     src: rocketchat.service
     dest: '/lib/systemd/system/rocketchat.service'
     
-
-- name: Use mongo shell initialize
-  shell: mongo --eval "printjson(rs.initiate())"
-
 - name: Start & Enable rocketchat.service
   service: 
     name: rocketchat 
