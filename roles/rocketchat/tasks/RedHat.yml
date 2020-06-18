@@ -2,7 +2,7 @@
 - name: Copy mongodb_repo
   file:
     src: mongodb-org-4.0.repo
-    dest: /etc/yum.repos.d/mongodb-org-4.0.repo
+    path: /etc/yum.repos.d/mongodb-org-4.0.repo
 
 # install dependency
 - name: Install dependency
