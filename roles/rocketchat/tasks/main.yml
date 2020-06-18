@@ -63,9 +63,9 @@
 
 # Check version,
 # must use sudo sh -c to solve the no-root permission
-- block:
-  - name: Check rocketchat Version
-    shell: 
+#- block:
+#  - name: Check rocketchat Version
+#    shell: 
 
 
 # check service state
