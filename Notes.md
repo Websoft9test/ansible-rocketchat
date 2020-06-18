@@ -13,9 +13,9 @@
 
 ## 环境要求
 
-* 程序语言：  
-* 应用服务器：
-* 数据库：
+* 程序语言： Meteor  由 JavaScript 和 CoffeeSript 编写
+* 应用服务器：无
+* 数据库： 
 * 依赖组件：Mongodb NodeJS 
 * 其他：
 
@@ -99,7 +99,7 @@ EOF
 ```
 ## 路径
 
-* 程序路径：
+* 程序路径： /opt/Rocket.Chat
 * 日志路径：  
 * 配置文件路径：
 * 其他...
@@ -130,11 +130,23 @@ EOF
 
 ## 服务
 
-本项目安装后自动生成：无服务
+本项目安装后自动生成：
 
-备注：本项目安装后自动生成服务
+备注：本项目安装后无服务,通过拷贝官网服务文件
 
-服务文件位置：
+服务文件位置： /lib/systemd/system/rocketchat.service
+[Unit]
+Description=The Rocket.Chat server
+After=network.target remote-fs.target nss-lookup.target nginx.target mongod.target
+[Service]
+ExecStart=/usr/local/bin/node /opt/Rocket.Chat/main.js
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=rocketchat
+User=rocketchat
+Environment=MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01 MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01 ROOT_URL=http://localhost:3000/ PORT=3000
+[Install]
+WantedBy=multi-user.target
 
 ```
 
@@ -148,24 +160,29 @@ EOF
 
 通过如下的命令获取主要组件的版本号: 
 
-```
 # Check  Rocket.Chat version
 
 
 ## 常见问题
 
 #### 有没有管理控制台？
-
-无
+有 通过ip:3000访问web gui
 
 #### 本项目需要开启哪些端口？
+mongod 27017
+node   3000
 
-无
 
 #### 有没有CLI工具？
-
-无
+rocketchatctl
 
 ## 日志
+* Update & Upgrade Rocket.Chat:   https://docs.rocket.chat/installation/manual-installation/rocketchatctl#environment
+rocketchatctl check-updates
+Current update available for RocketChat server: from 3.0.3 to 3.2.1
+rocketchatctl update
+rocketchatctl upgrade-rockectchatctl
+
+
 
 * 2020-06-完成CentOS安装研究

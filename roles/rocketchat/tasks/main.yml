@@ -62,7 +62,7 @@
 #- block:
 #  - name: Check rocketchat Version
 #    shell: 
-
+- block:
 
 # check service state
 - name: Check rocketchat Service
