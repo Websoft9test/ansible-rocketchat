@@ -1,4 +1,4 @@
- prepare
+# prepare
 - name: Copy mongodb_repo
   copy:
     src: mongodb-org-4.0.repo
