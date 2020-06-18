@@ -6,7 +6,7 @@
 
 # install dependency
 #- name: Install dependency
-  shell: |
+#  shell: |
     yum install -y curl && curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
     yum install -y gcc-c++ make mongodb-org nodejs
     yum install -y epel-release && sudo yum install -y GraphicsMagick
