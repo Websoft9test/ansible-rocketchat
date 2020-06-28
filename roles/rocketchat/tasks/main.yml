@@ -45,7 +45,7 @@
 # configure the Rocket.Chat service
 - name: Copy rocketchat.service file
   template:
-    src: rocketchat.service
+    src: rocketchat.service.j2
     dest: '/lib/systemd/system/rocketchat.service'
     
 - name: Start & Enable rocketchat.service
