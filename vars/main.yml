@@ -6,17 +6,7 @@ mongodb_root_password: "123456"
 # port_forward
 nginx_reverse_proxy_port: 3000
 
-# 随机密码处理
-init_db: 
-  mongodb:
-    user: root
-    password: "12345678" 
 
-init_application:
-  rocketchat:
-    service: rocketchat
-    database: rocketchat 
-    database_user: rocketchat
-    database_host: localhost
-    database_password: "123456"
+
+
       
