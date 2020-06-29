@@ -39,8 +39,13 @@
     state: started
     enabled: yes
 
-- name: Use mongo shell initiate
-  shell: mongo --eval "printjson(rs.initiate())"
+- name: Use mongo shell initiate & Set environment 
+  shell: | 
+    mongo --eval "printjson(rs.initiate())"
+    export=MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01
+    export=MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01
+    export=ROOT_URL=http://your-host-name.com-as-accessed-from-internet:3000
+    export=PORT=3000
 
 # configure the Rocket.Chat service
 - name: Copy rocketchat.service file
