@@ -10,22 +10,22 @@
 - name: Download rocketchat
   unarchive:
     src: "{{rocketchat_download_url}}"
-    dest: /opt
+    dest: /data/wwwroot
     remote_src: yes
 
 - name:  Install rocketchat
   shell: 
   args:
     cmd: npm install
-    chdir: /opt/bundle/programs/server
+    chdir: /data/wwwroot/bundle/programs/server
 
 - name: rename for rocketchat
-  shell: mv /opt/bundle  /opt/Rocket.Chat
+  shell: mv /data/wwwroot/bundle /data/wwwroot/Rocket.Chat
 
 - name: Creat rocketchat_user & set permiss
   shell: |
     useradd -M rocketchat && sudo usermod -L rocketchat
-    chown -R rocketchat:rocketchat /opt/Rocket.Chat
+    chown -R rocketchat:rocketchat /data/wwwroot/Rocket.Chat
 
 # configure MongoDB
 - name: Configure MongoDB
@@ -61,9 +61,9 @@
 
 # set soft link, -b cover the exist links
 # ln -sb src des
-- name: set soft link
-  shell: |
-    ln -sf /opt/Rocket.Chat/   /data/wwwroot
+#- name: set soft link
+#  shell: |
+
 
 # Check version,
 # must use sudo sh -c to solve the no-root permission
