@@ -59,8 +59,8 @@
     state: started
     enabled: yes
 
- Check version,
- must use sudo sh -c to solve the no-root permission
+ # Check version,
+ # must use sudo sh -c to solve the no-root permission
 - block:
   - name: Check rocketchat Version
     shell:  sudo sh -c "echo 'no method for rocketchat version' 1>> /data/logs/install_version.txt" 
