@@ -65,7 +65,6 @@
   - name: Check rocketchat Version
     shell:  sudo sh -c "echo 'no method for rocketchat version' 1>> /data/logs/install_version.txt" 
 
-
 # check service state
 - name: Check rocketchat Service
   shell: systemctl status rocketchat | grep Active*
