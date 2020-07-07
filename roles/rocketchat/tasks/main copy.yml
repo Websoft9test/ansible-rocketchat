@@ -27,7 +27,11 @@
     useradd -M rocketchat && sudo usermod -L rocketchat
     chown -R rocketchat:rocketchat /data/wwwroot/Rocket.Chat
 
-
+# configure MongoDB
+- name: Configure MongoDB
+  shell: |
+    sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
+    sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
 
 - name: Start & Enable mongod.service
   service: 
