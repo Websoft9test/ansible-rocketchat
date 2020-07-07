@@ -1,18 +1,8 @@
-# prepare
-#- name: Configure mogodb-org_repo
-#  shell: |
-#    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-#    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-
-#- name: Configure nodejs_repo
-#  shell: apt -y update && sudo apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
-
-# install dependency
-#- name: Install dependency
-#  apt:
-#    name:  build-essential , mongodb-org , nodejs , graphicsmagick
-#    update_cache: yes
-
+# prepare installation
+- name: Import mongodb_key and Configure mongodb_repo
+  shell: |
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 
 - name: Install dependency
   apt:
