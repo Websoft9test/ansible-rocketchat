@@ -20,12 +20,12 @@
     chdir: /data/wwwroot/bundle/programs/server
 
 - name: rename for rocketchat
-  shell: mv /data/wwwroot/bundle /data/wwwroot/Rocket.Chat
+  shell: mv /data/wwwroot/bundle /data/wwwroot/rocketchat
 
 - name: Creat rocketchat_user & set permiss
   shell: |
     useradd -M rocketchat && sudo usermod -L rocketchat
-    chown -R rocketchat:rocketchat /data/wwwroot/Rocket.Chat
+    chown -R rocketchat:rocketchat /data/wwwroot/rocketchat
 
 
 
