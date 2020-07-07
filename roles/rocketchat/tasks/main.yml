@@ -55,17 +55,12 @@
     state: started
     enabled: yes
 
-# set soft link, -b cover the exist links
-# ln -sb src des
-#- name: set soft link
-#  shell: |
 
-
-# Check version,
-# must use sudo sh -c to solve the no-root permission
-#- block:
-#  - name: Check rocketchat Version
-#    shell: 
+ Check version,
+ must use sudo sh -c to solve the no-root permission
+- block:
+  - name: Check rocketchat Version
+    shell: sudo sh -c "echo 'no method for rocketchat version' 1>> /data/logs/install_version.txt"
 
 
 # check service state
