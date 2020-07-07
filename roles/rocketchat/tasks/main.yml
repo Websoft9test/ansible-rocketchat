@@ -32,8 +32,7 @@
 
 # configure MongoDB
 - name: Configure MongoDB
-  shell: |
-    sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
+  shell: | 
     sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
 
 - name: Start & Enable mongod.service
@@ -43,8 +42,7 @@
     enabled: yes
 
 - name: Use mongo shell initiate 
-  shell: | 
-    mongo --eval "printjson(rs.initiate())"
+  shell: mongo --eval "printjson(rs.initiate())"
 
 # configure the Rocket.Chat service
 - name: Copy rocketchat.service file
