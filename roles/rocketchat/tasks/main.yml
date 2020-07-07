@@ -2,7 +2,10 @@
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
 
-# prepare
+# prepare installation
+- name: rm -rf /data/wwwroot/rocketchat for second installation
+  shell: rm -rf /data/wwwroot/rocketchat
+
 - name: Using npm install inherits and n
   shell: sudo npm install -g inherits n && sudo n 12.14.0
 
@@ -19,13 +22,13 @@
     cmd: npm install
     chdir: /data/wwwroot/bundle/programs/server
 
-- name: rename for rocketchat
-  shell: mv /data/wwwroot/bundle /data/wwwroot/Rocket.Chat
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "rocketchat" ]; then mv bundle rocket; fi   
 
 - name: Creat rocketchat_user & set permiss
   shell: |
     useradd -M rocketchat && sudo usermod -L rocketchat
-    chown -R rocketchat:rocketchat /data/wwwroot/Rocket.Chat
+    chown -R rocketchat:rocketchat /data/wwwroot/rocketchat
 
 # configure MongoDB
 - name: Configure MongoDB
