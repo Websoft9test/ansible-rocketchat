@@ -39,7 +39,7 @@
 - name: Start & Enable mongod.service
   service: 
     name: mongod 
-    state: started
+    state: restarted
     enabled: yes
 
 - name: Use mongo shell initiate & Set environment 
