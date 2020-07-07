@@ -41,8 +41,8 @@
     state: restarted
     enabled: yes
 
-- name: Use mongo shell initiate 
-  shell: mongo --eval "printjson(rs.initiate())"
+#- name: Use mongo shell initiate 
+#  shell: mongo --eval "printjson(rs.initiate())"
 
 # configure the Rocket.Chat service
 - name: Copy rocketchat.service file
