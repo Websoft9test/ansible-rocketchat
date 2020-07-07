@@ -23,7 +23,7 @@
     chdir: /data/wwwroot/bundle/programs/server
 
 - name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "rocketchat" ]; then mv bundle rocket; fi   
+  shell: cd /data/wwwroot; if [ ! -d "rocketchat" ]; then mv bundle rocketchat; fi   
 
 - name: Creat rocketchat_user & set permiss
   shell: |
