@@ -6,7 +6,7 @@
 
 - name: Install dependency
   apt:
-    name: graphicsmagick
+    name: [graphicsmagick,mongodb-org]
     update_cache: yes
 
 
