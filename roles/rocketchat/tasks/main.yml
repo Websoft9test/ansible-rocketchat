@@ -39,7 +39,6 @@
   service: 
     name: mongod 
     state: restarted
-    enabled: yes
 
 - name: Use mongo shell initiate 
   shell: mongo --eval "printjson(rs.initiate())"
