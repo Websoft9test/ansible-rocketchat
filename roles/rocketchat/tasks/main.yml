@@ -64,6 +64,11 @@
     state: started
     enabled: yes
 
+# set soft link, -b cover the exist links
+- name: set soft link
+  shell: |
+    ln -sf /data/wwwroot/rocketchat/rocketchatctl  /usr/local/bin
+
  # Check version,
  # must use sudo sh -c to solve the no-root permission
 - block:

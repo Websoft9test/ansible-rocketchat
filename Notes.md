@@ -49,7 +49,7 @@ Rocket.Chat 是一个开源在线聊天软件。
 ## 路径
 
 * 程序路径：*/data/wwwroot/rocketchat*  
-* 日志路径：  
+* 日志路径： 
 * 配置文件路径：
 * 其他...
 
