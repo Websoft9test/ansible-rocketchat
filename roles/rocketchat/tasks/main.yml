@@ -39,11 +39,10 @@
   service: 
     name: mongod 
     state: restarted
-    enabled: yes
 
-- name: Use mongo shell initiate 
-  shell: mongo --eval "printjson(rs.initiate())"
-
+- name: Wait mongodb restart and Use mongo shell initiate 
+  shell: sleep 3s && mongo --eval "printjson(rs.initiate())"
+        
 # configure the Rocket.Chat service
 - name: Copy rocketchat.service file
   template:
