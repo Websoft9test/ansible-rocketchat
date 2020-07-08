@@ -27,17 +27,11 @@ Rocket.Chat 是一个开源在线聊天软件。
 
 经过研究，CentOS和Ubuntu安装没有差异，故下面仅列出安装的步骤概要以及特别需要注意的地方：
 
-
-
-本项目通过官网下载tar包解压安装。
-Manual install:
-  Rocket.Chat 3.0.0
-  OS: Ubuntu 18.04 LTS, Ubuntu 19.04 and Ubuntu 20.04(Latest)
-  Mongodb 4.0.9
-  NodeJS 12.14.0
-
-下面基于不同的安装平台，分别进行安装说明。
-
+1. 安装Node.js, Nginx, MongoDB等环境
+2. 下载Rocket.Chat，并通过NPM安装依赖包
+3. 配置MongoDB集群，并初始化数据库
+4. 配置Rocket.Chat服务
+5. 运行
 
 ## 路径
 
