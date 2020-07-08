@@ -1,1 +1,2 @@
 rocketchat_download_url: "https://releases.rocket.chat/latest/download"
+rocketchat_nodejs_version: "12.14.0"
