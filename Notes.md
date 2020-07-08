@@ -1,9 +1,7 @@
 #  Rocket.Chat Notes
-
-组件名称：Rocket.Chat  
-安装文档：https://docs.rocket.chat/installation/manual-installation/ubuntu/  
-配置文档: 
-支持平台： Debian家族 | RHEL家族 | Windows | macOS等数十种（[详情](https://github.com/RocketChat/Rocket.Chat#deployment)）
+ 
+文档：[安装](https://docs.rocket.chat/installation/manual-installation/ubuntu/) | [配置](https://docs.rocket.chat/installation/manual-installation/ubuntu/)  
+平台： Debian家族 | RHEL家族 | Windows | macOS等数十种（[详情](https://github.com/RocketChat/Rocket.Chat#deployment)）
 
 责任人：zxc
 
