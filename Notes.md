@@ -1,9 +1,13 @@
 #  Rocket.Chat Notes
+
+责任人：zxc
+
+---
  
 文档：[安装](https://docs.rocket.chat/installation/manual-installation/ubuntu/) | [配置](https://docs.rocket.chat/installation/manual-installation/ubuntu/)  
 平台： Debian家族 | RHEL家族 | Windows | macOS等数十种（[详情](https://github.com/RocketChat/Rocket.Chat#deployment)）
 
-责任人：zxc
+
 
 ## 概要
 
