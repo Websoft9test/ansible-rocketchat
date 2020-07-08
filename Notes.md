@@ -33,9 +33,22 @@ Rocket.Chat 是一个开源在线聊天软件。
 4. 配置Rocket.Chat服务
 5. 运行
 
+安装过程中，有几个容易犯错的地方：
+
+1. 官方要求修改 mongo.conf 引擎的设置，但当前不做任何修改，RocketChat也可以运行。如果安装官方这条命令修改，会导致MongoDB无法启动
+   ```
+   sudo sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf 
+   ```
+2. MongoDB初始Task在Ubuntu下报错，研究发现，主要是此Task之前有一个重启MongoDB的Task。估计是MongoDB还没有完全重启导致无法初始化。
+   ```
+   mongo --eval "printjson(rs.initiate())"
+   ```
+   解决方案：初始化之前 sleep 3s
+
+
 ## 路径
 
-* 程序路径： /opt/Rocket.Chat
+* 程序路径：*/opt/Rocket.Chat*
 * 日志路径：  
 * 配置文件路径：
 * 其他...
@@ -46,82 +59,38 @@ Rocket.Chat 是一个开源在线聊天软件。
 
 ## 账号密码
 
-
 ### 数据库密码
 
-如果有数据库  
-无
-
-* 数据库安装方式：
-* 账号密码：
+采用免账号和密码连接MongoDB
 
 ### 后台账号
 
-如果有后台账号
-无
-
-* 登录地址 
-* 账号密码   
-* 密码修改方案：最好是有命令行修改密码的方案
+* 登录地址：
+* 账号密码：自行注册设置
 
 ## 服务
 
-本项目安装后自动生成：
-
-备注：本项目安装后无服务,通过拷贝官网服务文件
-
-服务文件位置： /lib/systemd/system/rocketchat.service
-[Unit]
-Description=The Rocket.Chat server
-After=network.target remote-fs.target nss-lookup.target nginx.target mongod.target
-[Service]
-ExecStart=/usr/local/bin/node /opt/Rocket.Chat/main.js
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=rocketchat
-User=rocketchat
-Environment=MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01 MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01 ROOT_URL=http://localhost:3000/ PORT=3000
-[Install]
-WantedBy=multi-user.target
-
-```
-
-```
+官方提供了服务的模板，需要手工创建。具体见Ansible项目中的 rocketchat.service
 
 ## 环境变量
 
-  MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01
-  MONGO_OPLOG_URL=mongodb://localhost:27017/local?replicaSet=rs01
-  ROOT_URL=http://your-host-name.com-as-accessed-from-internet:3000
-  PORT=3000
+官方文档提供了4个环境变量，要求写到服务中
 
 ## 版本号
 
-通过如下的命令获取主要组件的版本号: 
-
-# Check  Rocket.Chat version
-
+暂时没有找到版本号查询方案
 
 ## 常见问题
 
 #### 有没有管理控制台？
-有 通过ip:3000访问web gui
+
+有，通过 *http://公网IP:3000* 访问
 
 #### 本项目需要开启哪些端口？
-mongod 27017
-node   3000
 
+mongod 27017  
+node   3000  
 
 #### 有没有CLI工具？
+
 rocketchatctl
-
-## 日志
-* Update & Upgrade Rocket.Chat:   https://docs.rocket.chat/installation/manual-installation/rocketchatctl#environment
-rocketchatctl check-updates
-Current update available for RocketChat server: from 3.0.3 to 3.2.1
-rocketchatctl update
-rocketchatctl upgrade-rockectchatctl
-
-
-
-* 2020-06-完成CentOS安装研究
