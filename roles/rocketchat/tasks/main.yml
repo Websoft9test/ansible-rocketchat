@@ -23,12 +23,19 @@
     chdir: /data/wwwroot/bundle/programs/server
 
 - name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "rocketchat" ]; then mv bundle rocketchat; fi   
+  shell: cd /data/wwwroot; if [ ! -d "rocketchat" ]; then mv bundle rocketchat; fi
 
 - name: Creat rocketchat_user & set permiss
   shell: |
     useradd -M rocketchat && sudo usermod -L rocketchat
     chown -R rocketchat:rocketchat /data/wwwroot/rocketchat
+
+# Download rocketchatctl
+- name: Download rocketchatctl
+  get_url:
+    url: "{{rocketchatctl_download_url}}"
+    dest: /data/wwwroot/rocketchat
+    mode: '0755'
 
 # configure MongoDB
 - name: Configure MongoDB
