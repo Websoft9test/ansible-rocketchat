@@ -23,7 +23,7 @@ Rocket.Chat 是一个开源在线聊天软件。
 
 ## 安装说明
 
-官方提供手动下载安装和[Ansible自动化安装]()两种选项。经过评估，我们采用手工安装方式
+官方提供手动下载安装和[Ansible自动化安装](https://github.com/RocketChat/Rocket.Chat.Ansible)两种选项。经过评估，我们采用手工安装方式
 
 经过研究，CentOS和Ubuntu安装没有差异，故下面仅列出安装的步骤概要以及特别需要注意的地方：
 
