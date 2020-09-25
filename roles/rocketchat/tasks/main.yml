@@ -37,9 +37,11 @@
     dest: /data/wwwroot/rocketchat
     mode: '0755'
 
-# configure MongoDB
-- name: Configure MongoDB
+# configure MongoDB, 
+- name: Configure MongoDB 
   shell: | 
+    rm -rf /var/lib/mongo/*
+    sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
     sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
 
 - name: Start & Enable mongod.service
