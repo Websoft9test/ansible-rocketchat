@@ -37,7 +37,7 @@
     dest: /data/wwwroot/rocketchat
     mode: '0755'
 
-# configure MongoDB, 
+# configure MongoDB, The data directory needs to be deleted to switch the engine
 - name: Configure MongoDB 
   shell: | 
     rm -rf /var/lib/mongo/*
