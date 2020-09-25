@@ -40,7 +40,7 @@
 # configure MongoDB, The data directory needs to be deleted to switch the engine
 - name: Configure MongoDB 
   shell: | 
-    rm -rf /var/lib/mongo/*
+    rm -rf /var/lib/mongo/*  /var/lib/mongodb/*
     sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
     sed -i "s/^#replication:/replication:\n  replSetName: rs01/" /etc/mongod.conf
 
